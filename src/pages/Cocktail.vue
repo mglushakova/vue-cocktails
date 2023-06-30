@@ -1,11 +1,7 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({});
-</script>
+<script setup lang="ts"></script>
 
 <template>Cocktail</template>
 
-<style lang="sass" scoped>
-@import '../assets/styles/main.sass'
+<style lang="scss" scoped>
+@import '../assets/styles/main.scss';
 </style>
