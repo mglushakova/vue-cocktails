@@ -6,12 +6,14 @@ import type { Cocktail } from '@/types/Cocktail';
 
 type State = {
   ingredients: Ingredient[];
+  ingredient: Ingredient | null;
   cocktails: Cocktail[];
 };
 
 export const useRootStore = defineStore('root', {
   state: (): State => ({
     ingredients: [],
+    ingredient: null,
     cocktails: [],
   }),
   actions: {
@@ -22,6 +24,9 @@ export const useRootStore = defineStore('root', {
     async getCocktails(ingredient: Ingredient | null) {
       const data = await axios.get(`${COCKTAILS_BY_ING_URL}${ingredient}`);
       this.cocktails = data?.data?.drinks;
+    },
+    setIngredient(val: Ingredient) {
+      this.ingredient = val;
     },
   },
 });
