@@ -12,10 +12,18 @@ const { ingredients, ingredient, cocktails } = storeToRefs(rootStore);
 function getCocktails() {
   rootStore.getCocktails(rootStore.ingredient);
 }
+
+function removeIngredient() {
+  rootStore.setIngredient(null);
+}
 </script>
 
 <template>
-  <AppLayout imgUrl="/src/assets/img/bg-1.jpg">
+  <AppLayout
+    imgUrl="/src/assets/img/bg-1.jpg"
+    :backFunc="removeIngredient"
+    :isBackButtonVisible="!!ingredient"
+  >
     <div class="wrapper">
       <div v-if="!ingredient || !cocktails" class="info">
         <div class="title">Choose your drink</div>
